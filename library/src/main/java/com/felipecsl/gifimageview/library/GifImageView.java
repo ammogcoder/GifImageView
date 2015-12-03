@@ -17,7 +17,7 @@ public class GifImageView extends ImageView implements Runnable {
   private boolean animating;
   private boolean shouldClear;
   private Thread animationThread;
-  private OnFrameAvailable frameCallback = null;
+  private OnFrameAvailableListener frameCallback = null;
   private long framesDisplayDuration = -1l;
 
   private final Runnable updateResults = new Runnable() {
@@ -170,15 +170,15 @@ public class GifImageView extends ImageView implements Runnable {
     } while (animating);
   }
 
-  public OnFrameAvailable getOnFrameAvailable() {
+  public OnFrameAvailableListener getOnFrameAvailableListener() {
     return frameCallback;
   }
 
-  public void setOnFrameAvailable(OnFrameAvailable frameProcessor) {
+  public void setOnFrameAvailableListener(OnFrameAvailableListener frameProcessor) {
     this.frameCallback = frameProcessor;
   }
 
-  public interface OnFrameAvailable {
+  public interface OnFrameAvailableListener {
     Bitmap onFrameAvailable(Bitmap bitmap);
   }
 }

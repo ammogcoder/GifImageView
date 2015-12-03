@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final Button btnClear = (Button) findViewById(R.id.btnClear);
 
     blur = Blur.newInstance(this);
-    gifImageView.setOnFrameAvailable(new GifImageView.OnFrameAvailable() {
+    gifImageView.setOnFrameAvailableListener(new GifImageView.OnFrameAvailableListener() {
       @Override
       public Bitmap onFrameAvailable(Bitmap bitmap) {
         if (shouldBlur) {
